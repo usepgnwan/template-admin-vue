@@ -27,7 +27,7 @@
 </template>
 
 <script>  
-//import "../../../src/assets/js/main.js";
+// import "../../../../public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js";
 
 import NavDashboard from '@/components/layout/dashboard/NavDashboard.vue';
 import TopDashboard from '@/components/layout/dashboard/TopDashboard.vue';

@@ -8,13 +8,12 @@ const routes = [{
         path: '/login',
         name: 'login',
         component: () =>
-            import (`../components/layout/Loginlayout.vue`)
+            import (`../components/layout/login/Loginlayout.vue`)
     },
     {
         path: '/',
         name: 'Dashboard',
-        component: () =>
-            import (`../components/layout/dashboard/DashboardLayout.vue`),
+        component: () =>  import (`../components/layout/dashboard/DashboardLayout.vue`),
         children: [{
                 path: '/',
                 name: 'home',
@@ -24,6 +23,16 @@ const routes = [{
                 path: '/about',
                 name: 'about',
                 component: () => page('AboutView')
+            },
+            {
+                path: '/blog',
+                name: 'blog',
+                component: () => page('Blog/BlogView'),
+            },
+            {
+                path: '/blog/form/:id?',
+                name: 'blog/form',
+                component: () => page('Blog/BlogForm'),
             },
         ]
     }

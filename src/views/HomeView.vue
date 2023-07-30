@@ -301,7 +301,14 @@
   </template>
   
   <script> 
+  // import mixin from '@/router/mixin'
   export default {
-    name: "HomeView"
+    name: "HomeView",
+    // mixins: [this.mixin],
+    created() {
+      // Access global data and method in the component
+      console.log('Component created:', this.msg);
+      this.displayMessage();
+    },
   }
   </script>

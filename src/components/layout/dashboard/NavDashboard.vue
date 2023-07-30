@@ -10,7 +10,7 @@
 
     <li class="nav-item">
       <a
-        class="nav-link collapsed"
+        class="nav-link collapsed multi-link"
         data-bs-target="#components-nav"
         data-bs-toggle="collapse"
         href="#"
@@ -317,14 +317,6 @@ methods: {
             } else {
                 document.querySelector(el, all).addEventListener(type, listener)
             }
-        },
-        test(){
-            
-            $('.alink-click').click(function(){ 
-                let $this = $(this);
-                $this.removeClass('active');
-                $this.addClass('active');
-            }); 
         }
     },
     mounted() { 
@@ -334,13 +326,19 @@ methods: {
         this.on('click', '.search-bar-toggle', function() {
             document.querySelector('.search-bar').classList.toggle('search-bar-show')
         }); 
-        this.test();
-        let alink = document.querySelectorAll(".alink-click");
-        alink.forEach((item, val)=> {  
-            if(val==0){
-                $('.alink-click').first().trigger('click');
-            }
-        });
+         let a = $('.alink-click'); 
+        let thisPath = this.$router.currentRoute._rawValue.href; 
+        $.each(a,function(i,val){
+          let v =$(val);
+          v.removeClass('active');
+          if(v.attr("href") == thisPath){
+              if(v.closest("li.nav-item").find("a.multi-link") != undefined) {
+                v.closest("li.nav-item").find("a.multi-link").removeClass("collapsed").attr("aria-expanded", true)
+                v.closest("li.nav-item").find("ul.nav-content ").addClass("show")
+              }
+              v.addClass('router-link-exact-active');
+          }
+        }); 
     } 
 };
 </script>
