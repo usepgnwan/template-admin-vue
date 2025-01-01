@@ -1,6 +1,6 @@
 <template>
   <div id="app"> 
-<!-- <div id="preloader"></div> -->
+<!-- <div id="preloader"></div> tes-->
     <router-view></router-view>  
 </div>
 
